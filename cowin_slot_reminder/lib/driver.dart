@@ -55,7 +55,7 @@ class Driver {
       'Authorization':
           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNzWnNCTmhaY0YzUTlTNHRycFFCVEJ5TlJSSSIsImtpZCI6IlNzWnNCTmhaY0YzUTlTNHRycFFCVEJ5TlJSSSJ9.eyJhdWQiOiJodHRwczovL25ld2hlYWx0aGVudi5henVyZWhlYWx0aGNhcmVhcGlzLmNvbSIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2E0OTNkYzQ5LTk4ODctNDExMS1hZTU3LWEwNDgwYmI4YzY2Mi8iLCJpYXQiOjE1OTQwMDg4NTYsIm5iZiI6MTU5NDAwODg1NiwiZXhwIjoxNTk0MDEyNzU2LCJhY3IiOiIxIiwiYWlvIjoiQVZRQXEvOFFBQUFBRy9WZ2Y4UE1jeHZva09vQmVyWlE1NmdvSWxvMjk5a2hjakhBQ1V1WGtLSEcxcjN3c25mbGpOdkdFRlFoMkJJdDRlb3crQ1FkbWdqWG5mNDZaQWZnUEJmeE50RU0zZmt3Z0tqL0kxYmE5VVE9IiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6IjRlMjE3YzBjLTUzNTAtNGQxYy1iMTY5LTAyOGE1MmJjN2M1NSIsImFwcGlkYWNyIjoiMSIsImVtYWlsIjoic21hcnR2aXNpb25haTFAb3V0bG9vay5jb20iLCJmYW1pbHlfbmFtZSI6IktoYW4iLCJnaXZlbl9uYW1lIjoiQXJiYWIiLCJpZHAiOiJsaXZlLmNvbSIsImlwYWRkciI6IjE1Ny4zNy4yMjQuMTE2IiwibmFtZSI6IkFyYmFiIEtoYW4iLCJvaWQiOiJhNGEzNzI0Ni1iYjJhLTQ4NzQtYWYxZi1mYmJkYzZiOTEzMjciLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiIwM2FBTG5namJUcVJuVzU1TlNtT3ZiZUpqdWdLYkY5clFST082QlE5ZFE0IiwidGlkIjoiYTQ5M2RjNDktOTg4Ny00MTExLWFlNTctYTA0ODBiYjhjNjYyIiwidW5pcXVlX25hbWUiOiJsaXZlLmNvbSNzbWFydHZpc2lvbmFpMUBvdXRsb29rLmNvbSIsInV0aSI6ImlTeEVya1BzdDB1UWVRYWRuZ2htQUEiLCJ2ZXIiOiIxLjAifQ.DBiVQ9bHpBQetPvMUGbow77Jqw4g3H7nDcG6k4TXvInhg3zwJjMgsyOxnZTx8-5le2HP5sSXCFkum-WXEI_eG7LCcymKrx7GfYprcSiAl6EOi-SNX9ugKei26TSeX-gc7j7uFIfCb9o1OSVUh9D27Php_wgwIO84DvkyIFdELa0QawIrKMuGBVrgSFxd1ANlPT3hoUvcbtwqC3UL-ByXJndBpr94FTCt2RK_qFryRsXRVpp7lfxRLz4M0lSHqPGUVIW2wwvtD1eBiMyjSMVkM5lVOhILveMhIYUt0ikhpkpDF5kP_S6DkN8x4V3446tHYEeFajzafRoBuPy4Uht2FA'
     };
-    print(url);
+    //print(url);
     var request = http.Request('GET', Uri.parse(url));
     request.body = '''''';
     request.headers.addAll(headers);
@@ -65,7 +65,7 @@ class Driver {
     if (response.statusCode == 200) {
       res =  response.stream.bytesToString();
     } else {
-      print('in else');
+      //print('in else');
       res = response.reasonPhrase;
     }
     //api_response = res;
@@ -81,7 +81,7 @@ class Driver {
     state = '';
     districtId = -1;
     vaccineType = '';
-    doseNumber = '';
+    doseNumber = 'available_capacity_dose1';
     url = '';
     minAgeLimit = 0;
   }
@@ -125,9 +125,9 @@ class Driver {
   void notify(context)  async{
     var api_response;
     var counter = 0;
-    print(state+" "+searchType+" "+pinCode+" "+vaccineType+" "+doseNumber);
-    print(minAgeLimit);
-    print(districtId);
+    //print(state+" "+searchType+" "+pinCode+" "+vaccineType+" "+doseNumber);
+   // print(minAgeLimit);
+   // print(districtId);
     if (!checkValues()) {
      showAlertDialog(context,"Please fill all the details.");
    } else {
@@ -173,13 +173,13 @@ class Driver {
     }
   }
 
-  void send_notification(List area, List capacity) {
+  void send_notification(List area, List capacity) async {
 
     var data = '';
     for (int i = 0; i < area.length; i++) {
       data = " "+ data + area[i] +",";
     }
-    var message = "Slot has been opened in your area at:gj  hh fg hfh fhf hfgh fgh gg hhfg"+data;
+    var message = "Slots available: "+data;
     pn.showNotification(message);
 }
 }
