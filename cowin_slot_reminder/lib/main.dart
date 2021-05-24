@@ -35,8 +35,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TextEditingController _pincode = new TextEditingController();
+
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
@@ -63,16 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       vv.fpincode.clear();
                     },
                   ),
-//                  MaterialButton(
-//                    child: Text(
-//                      ' Stop Me ',
-//                      style: TextStyle(fontSize: 20.0, color: Colors.white),
-//                    ),
-//                    color: Colors.red,
-//                    onPressed: () {
-//                      dv.stopMe = 1;
-//                    },
-//                  )
                 ],
               ),
             )
@@ -80,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ]));
   }
 }
-
 
 class ButtonSearchType extends StatefulWidget {
   @override
@@ -96,7 +86,6 @@ class ButtonSearchTypeState extends State {
 
   bool _isPressedButton1 = false;
   bool _isPressedButton2 = true;
-
 
   Widget build(BuildContext context) {
     return Container(
@@ -152,35 +141,31 @@ class ButtonSearchTypeState extends State {
                 ),
               ],
             ),
-
-
-
             if ('$searchtype' == "district") Indianstate(),
             if ('$searchtype' == "pincode")
               Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: const Offset(
-                            1.0,
-                            1.0,
-                          ),
-                          blurRadius: 5.0,
-                          spreadRadius: 2.0,
-                        ), //BoxShadow
-                        BoxShadow(
-                          color: Colors.white,
-                          offset: const Offset(0.0, 0.0),
-                          blurRadius: 0.0,
-                          spreadRadius: 0.0,
-                        ), //BoxShadow
-                      ],
-                  //    border: Border.all()
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: const Offset(
+                          1.0,
+                          1.0,
+                        ),
+                        blurRadius: 5.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: const Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
+                    //    border: Border.all()
                   ),
-
                   margin: const EdgeInsets.only(
                       left: 10, right: 10, top: 50, bottom: 15),
                   child: TextField(
@@ -1111,9 +1096,6 @@ class DatePickerDemo extends StatefulWidget {
 }
 
 class _DatePickerDemoState extends State<DatePickerDemo> {
-  /// Which holds the selected date
-  /// Defaults to today's date.
-//  DateTime selectedDate = DateTime.now();
   bool _decideWhichDayToEnable(DateTime day) {
     if ((day.isAfter(DateTime.now().subtract(Duration(days: 1))) &&
         day.isBefore(DateTime.now().add(Duration(days: 11))))) {
@@ -1143,26 +1125,26 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
         margin: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                offset: const Offset(
-                  1.0,
-                  1.0,
-                ),
-                blurRadius: 5.0,
-                spreadRadius: 2.0,
-              ), //BoxShadow
-              BoxShadow(
-                color: Colors.white,
-                offset: const Offset(1.0, 1.0),
-                blurRadius: 0.0,
-                spreadRadius: 0.0,
-              ), //BoxShadow
-            ],
-           // border: Border.all()
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: const Offset(
+                1.0,
+                1.0,
+              ),
+              blurRadius: 5.0,
+              spreadRadius: 2.0,
+            ), //BoxShadow
+            BoxShadow(
+              color: Colors.white,
+              offset: const Offset(1.0, 1.0),
+              blurRadius: 0.0,
+              spreadRadius: 0.0,
+            ), //BoxShadow
+          ],
+          // border: Border.all()
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1202,26 +1184,26 @@ class DoseNumberState extends State {
         margin: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 1),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.white70,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                offset: const Offset(
-                  1.0,
-                  1.0,
-                ),
-                blurRadius: 5.0,
-                spreadRadius: 2.0,
-              ), //BoxShadow
-              BoxShadow(
-                color: Colors.white,
-                offset: const Offset(0.0, 0.0),
-                blurRadius: 0.0,
-                spreadRadius: 0.0,
-              ), //BoxShadow
-            ],
-        //    border: Border.all()
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.white70,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: const Offset(
+                1.0,
+                1.0,
+              ),
+              blurRadius: 5.0,
+              spreadRadius: 2.0,
+            ), //BoxShadow
+            BoxShadow(
+              color: Colors.white,
+              offset: const Offset(0.0, 0.0),
+              blurRadius: 0.0,
+              spreadRadius: 0.0,
+            ), //BoxShadow
+          ],
+          //    border: Border.all()
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -1230,17 +1212,13 @@ class DoseNumberState extends State {
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-
                 margin: const EdgeInsets.only(
                     top: 0, left: 0, right: 0, bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.blue.shade700,
-
                 ),
-                child: Row(
-
-                    children: [
+                child: Row(children: [
                   FlatButton.icon(
                     label: const Text(
                       'Dose 1      ',
@@ -1289,23 +1267,6 @@ class DoseNumberState extends State {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.blue.shade700,
-                  //  boxShadow: [
-//                BoxShadow(
-//                  color: Colors.blueAccent[200],
-//                  offset: const Offset(
-//                    5.0,
-//                    5.0,
-//                  ),
-//                  blurRadius: 5.0,
-//                  spreadRadius: 2.0,
-//                ), //BoxShadow
-//                BoxShadow(
-//                  color: Colors.white,
-//                  offset: const Offset(0.0, 0.0),
-//                  blurRadius: 0.0,
-//                  spreadRadius: 0.0,
-//                ), //BoxShadow
-                  //   ],
                   border: Border()),
               child: Row(
                 children: [
@@ -1353,56 +1314,7 @@ class DoseNumberState extends State {
               ),
             ),
           ],
-//        RadioListTile(
-//              groupValue: dv.doseNumber,
-//              title: Text('Dose 1'),
-//              value: 'available_capacity_dose1',
-//              onChanged: (val) {
-//                setState(() {
-//                  dv.doseNumber = val;
-//                });
-//              },
-//            ),
-//          RadioListTile(
-//                groupValue: dv.doseNumber,
-//                title: Text('Dose 2'),
-//                value: 'available_capacity_dose2',
-//                onChanged: (val) {
-//                  setState(() {
-//                    dv.doseNumber = val;
-//                  });
-//                },
-//              ),
-        )
-        //       Container(
-//          children:[ Container(
-//            //color: Colors.red,
-//            child: RadioListTile(
-//              groupValue: dv.doseNumber,
-//              title: Text('18+'),
-//              value: 'available_capacity_dose1',
-//              onChanged: (val) {
-//                setState(() {
-//                  dv.doseNumber = val;
-//                });
-//              },
-//            ),
-//          ),
-//            Container(
-//              //color: Colors.red,
-//              child: RadioListTile(
-//                groupValue: dv.doseNumber,
-//                title: Text('45+'),
-//                value: 'available_capacity_dose1',
-//                onChanged: (val) {
-//                  setState(() {
-//                    dv.doseNumber = val;
-//                  });
-//                },
-//              ),
-//            ),
-
-        );
+        ));
   }
 }
 
@@ -1426,26 +1338,26 @@ class VaccineTypeState extends State<VaccineType> {
       margin: EdgeInsets.only(left: 10, right: 10, bottom: 1),
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: const Offset(
-                1.0,
-                1.0,
-              ),
-              blurRadius: 5.0,
-              spreadRadius: 2.0,
-            ), //BoxShadow
-            BoxShadow(
-              color: Colors.white,
-              offset: const Offset(0.0, 0.0),
-              blurRadius: 0.0,
-              spreadRadius: 0.0,
-            ), //BoxShadow
-          ],
-      //    border: Border.all()
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: const Offset(
+              1.0,
+              1.0,
+            ),
+            blurRadius: 5.0,
+            spreadRadius: 2.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: const Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+        //    border: Border.all()
       ),
       child: DropdownButton<String>(
           isExpanded: true,
