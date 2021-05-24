@@ -11,4 +11,4 @@ Input :
 * Date on which you want to check the availability
 <br>
 Output : <br>
-* This will give you notification as soon as any seat is available in your area according to the information you have entered.
+This will give you notification as soon as any seat is available in your area according to the information you have entered.
