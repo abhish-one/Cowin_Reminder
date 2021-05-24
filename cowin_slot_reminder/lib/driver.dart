@@ -8,14 +8,12 @@ import 'package:http/http.dart' as http;
 import 'pushNotification.dart';
 
 class Driver {
-
   String searchType;
   String pinCode = '';
   String state = '';
   int districtId = -1;
   String vaccineType = '';
   DateTime date;
-  //String api_response = '';
   String doseNumber = '';
   String url = '';
   int minAgeLimit = 0;
@@ -27,7 +25,7 @@ class Driver {
     this.searchType = 'pincode';
   }
 
-   callApi()  async{
+  callApi() async {
     String url = '';
     var res;
     switch (searchType) {
@@ -63,19 +61,15 @@ class Driver {
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
-      res =  response.stream.bytesToString();
+      res = response.stream.bytesToString();
     } else {
       print('in else');
       res = response.reasonPhrase;
     }
-    //api_response = res;
     return res;
-    print('testing');
-    //print(json.decode(api_response));
   }
 
-//
-  clear(){
+  clear() {
     searchType = 'pincode';
     pinCode = '';
     state = '';
@@ -85,7 +79,8 @@ class Driver {
     url = '';
     minAgeLimit = 0;
   }
-  showAlertDialog(BuildContext context,msg) {
+
+  showAlertDialog(BuildContext context, msg) {
     // Create button
     Widget okButton = MaterialButton(
       child: Text("OK"),
@@ -93,8 +88,6 @@ class Driver {
         Navigator.of(context).pop();
       },
     );
-
-    // Create AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Alert"),
       content: Text(msg),
@@ -111,10 +104,7 @@ class Driver {
   }
 
   bool checkValues() {
-    if ((
-            vaccineType != '' &&
-            doseNumber != '' &&
-            minAgeLimit != 0) &&
+    if ((vaccineType != '' && doseNumber != '' && minAgeLimit != 0) &&
         (pinCode != '' || (state != '' && districtId != 0))) {
       return true;
     } else {
@@ -122,27 +112,21 @@ class Driver {
     }
   }
 
-  void notify(context)  async{
+  void notify(context) async {
     var api_response;
-    var counter = 0;
-    print(state+" "+searchType+" "+pinCode+" "+vaccineType+" "+doseNumber);
-    print(minAgeLimit);
-    print(districtId);
+
     if (!checkValues()) {
-     showAlertDialog(context,"Please fill all the details.");
-   } else {
+      showAlertDialog(context, "Please fill all the details.");
+    } else {
       while (true) {
-         api_response =  await callApi();
+        api_response = await callApi();
         if (api_response == 'Bad Request') {
           showAlertDialog(context,
               "Either you may have entered the details wrong, or Govt. servers are busy right now. Please try again !!! ");
           break;
-        }
-        else if (api_response == '') {
-          counter ++;
+        } else if (api_response == '') {
           continue;
-        }
-        else {
+        } else {
           var response = json.decode(api_response)['sessions'];
           var area = [];
           var capacity = [];
@@ -167,19 +151,17 @@ class Driver {
             break;
           }
           sleep(const Duration(seconds: 3));
-          counter ++;
         }
       }
     }
   }
 
   void send_notification(List area, List capacity) {
-
     var data = '';
     for (int i = 0; i < area.length; i++) {
-      data = " "+ data + area[i] +",";
+      data = " " + data + area[i] + ",";
     }
-    var message = "Slot has been opened in your area at:gj  hh fg hfh fhf hfgh fgh gg hhfg"+data;
+    var message = "Slot has been opened in your area at:" + data;
     pn.showNotification(message);
-}
+  }
 }
