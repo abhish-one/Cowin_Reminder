@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'driver.dart';
-
+import 'global_variables.dart';
 void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
+Variables vv = Variables();
 
 Driver dv = Driver();
-
 class MyApp extends StatelessWidget {
 // This widget is the root of your application.
   @override
@@ -34,6 +34,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _pincode = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () async {
                       await dv.notify(context);
                       dv.clear();
+                      vv.fpincode.clear();
                     },
                   ),
                 ],
@@ -77,6 +80,7 @@ class ButtonSearchType extends StatefulWidget {
 //
 class ButtonSearchTypeState extends State {
 //
+
   String searchtype = 'pincode';
   String pincode;
 
@@ -165,10 +169,15 @@ class ButtonSearchTypeState extends State {
                   margin: const EdgeInsets.only(
                       left: 10, right: 10, top: 50, bottom: 15),
                   child: TextField(
-                    onSubmitted: (value) {
+                    controller: vv.fpincode,
+                    onChanged: (value) {
                       pincode = value;
                       dv.pinCode = value;
                     },
+                    onSubmitted: (value) {
+                    pincode = value;
+                    dv.pinCode = value;
+                  },
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter a Pin code'),
