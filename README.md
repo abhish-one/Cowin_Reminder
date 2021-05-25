@@ -12,10 +12,7 @@ This Android/IOS application intends to help users to get an early notification 
 * Date on which you want to check the availability
 
 <h3>Output : </h3>
-This will give you notification as soon as any seat is available in your area according to the information you have entered.
+This will give you notification as soon as any seat is available in your area according to the information you have entered.<br>
 
-<br>
-<h3>User Interface : </h3>
-<img src="https://github.com/ABMARK43/Cowin_Reminder/blob/main/apk/UI-COWIN%20slot%20reminder.gif" width="250" height="400" />
-
-<h3>Video demo : </h3>
+<pre>  User Interface                                             Working demo                   <br>
+<img src="https://github.com/ABMARK43/Cowin_Reminder/blob/main/apk/UI-COWIN%20slot%20reminder.gif" width="230" height="400" />                    <img src="https://github.com/ABMARK43/Cowin_Reminder/blob/main/apk/Video%20demo.gif" width="230" height="400" /> </pre>
